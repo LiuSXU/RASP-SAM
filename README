@@ -1,1 +1,38 @@
+# RASP-SAM: Retrieval-Augmented Semantic Prompting for Weakly-Supervised Few-Shot Medical Image Segmentation
 
+This repository contains the official implementation of RASP-SAM, as described in the paper "Adapting Foundation Models to Weakly-Supervised Few-Shot Medical Image Segmentation via Retrieval-Augmented Semantic Prompting" (IJCAI/ECAI 2026).
+
+## Overview
+RASP-SAM adapts frozen foundation models (DINOv2, CLIP, SAM2) for weakly-supervised few-shot medical image segmentation using only text-level anatomical labels. It includes modules for pseudo-mask generation, cross-modal attention, and dynamic prompting.
+
+## Features
+- Frozen encoders for DINOv2, CLIP, and SAM2.
+- Support for datasets: Synapse, CHAOS, CMR.
+- Iterative bootstrapping for refinement.
+- Metrics: Dice Score, Hausdorff Distance (HD).
+- Logging with TensorBoard and WandB.
+- Unit tests with pytest.
+- Jupyter notebooks for exploration and demo.
+- Configuration via YAML files.
+- Ablation study scripts.
+
+## Installation
+1. Clone the repository:
+git clone https://github.com/yourusername/RASP-SAM.git
+cd RASP-SAM
+2. Install dependencies:
+pip install -r requirements.txt
+3. Install the package in editable mode:
+pip 
+install -e .
+4. Download pre-trained models:
+- DINOv2: `torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14')`
+- CLIP: `clip.load('ViT-B/32', jit=False)`
+- SAM2: Download from https://github.com/facebookresearch/segment-anything-2 and place in checkpoints/sam2/
+5. Download datasets:
+- Synapse: https://www.synapse.org/#!Synapse:syn3193805/wiki/217789
+- CHAOS: https://chaos.grand-challenge.org/
+- CMR: https://www.creatis.insa-lyon.fr/Challenge/acdc/
+Place in `data/raw/`.
+
+## Usage
