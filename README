@@ -23,8 +23,7 @@ cd RASP-SAM
 2. Install dependencies:
 pip install -r requirements.txt
 3. Install the package in editable mode:
-pip 
-install -e .
+pip install -e .
 4. Download pre-trained models:
 - DINOv2: `torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14')`
 - CLIP: `clip.load('ViT-B/32', jit=False)`
