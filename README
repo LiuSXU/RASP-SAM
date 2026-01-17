@@ -18,7 +18,7 @@ RASP-SAM adapts frozen foundation models (DINOv2, CLIP, SAM2) for weakly-supervi
 
 ## Installation
 1. Clone the repository:
-git clone https://github.com/yourusername/RASP-SAM.git
+git clone https://github.com/LiuSXU/RASP-SAM.git
 cd RASP-SAM
 2. Install dependencies:
 pip install -r requirements.txt
@@ -36,3 +36,13 @@ install -e .
 Place in `data/raw/`.
 
 ## Usage
+### Training
+python scripts/train.py --config config/synapse.yaml
+### Evaluation
+python scripts/evaluate.py --checkpoint checkpoints/best.pth --config config/synapse.yaml
+### Inference
+python scripts/infer.py --image path/to/image.nii.gz --labels "liver,kidney_left,kidney_right,spleen" --output results/mask.nii.gz
+### Visualization
+python scripts/visualize.py --image path/to/image.nii.gz --mask path/to/mask.nii.gz
+### Ablation Studies
+python scripts/ablation.py --config config/ablation.yaml
